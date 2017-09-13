@@ -14,6 +14,8 @@ class StocksController < ApplicationController
 	    @stock = Stock.where(:twit_id => symbol.fetch("id")).first_or_create
 	    @stock.symbol = symbol.fetch("symbol")
 	    @stock.name = symbol.fetch("title")
+	 
+	    
 	    @stock.last_seen = DateTime.now
 
 	    @stock.save

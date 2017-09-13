@@ -1,4 +1,4 @@
-
+<center><h1>Recent Trending Stocks</h1></center>
 <%= @stocks.count %>
 
 <% @stocks.each do |stock| %>
@@ -6,8 +6,8 @@
 <h3><%= stock.twit_id %></h3>
 <h3><%= stock.symbol %> </h3>
 <h3><%= stock.name %> </h3>
-<h3><%= (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 %></h3>
-<h3><%= stock.last_seen %></h3>
+<h3>Hours since last seen: <%= (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 %></h3>
+<h3>Timestamp: <%= stock.last_seen %></h3>
 <br><br>
 <% end %>
 
