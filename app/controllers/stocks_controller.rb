@@ -32,7 +32,7 @@ class StocksController < ApplicationController
   end
 
 
-
+#
 
 
 
