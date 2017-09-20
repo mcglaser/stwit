@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909231033) do
+ActiveRecord::Schema.define(version: 20170920171541) do
 
   create_table "stocks", force: :cascade do |t|
     t.integer  "twit_id"
     t.string   "symbol"
     t.string   "name"
     t.datetime "last_seen"
+    t.integer  "times_seen"
   end
 
 end
