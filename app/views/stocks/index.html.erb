@@ -9,6 +9,7 @@
 <h3>Hours since last seen: <%= (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 %></h3>
 <h3><%= stock.last_seen %></h3>
 <h3><%= stock.times_seen %></h3>
+<h3><%= stock.times_seen_today %></h3>
 <br><br>
 <% end %>
 

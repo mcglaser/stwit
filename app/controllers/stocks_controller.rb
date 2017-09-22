@@ -19,6 +19,18 @@ class StocksController < ApplicationController
 	     else
 	      @stock.times_seen += 1
 	    end
+	    
+	    if @stock.times_seen_today == nil 
+	       @stock.times_seen_today = 1
+	    elsif
+	       @stock.last_seen == nil
+	       @stock.times_seen_today = 1
+	    elsif 
+	      (Time.parse(DateTime.now.to_s) - Time.parse(@stock.last_seen.to_s))/3600 >= 24
+	      @stock.times_seen_today = 1
+	    else
+	       @stock.times_seen_today += 1 
+	    end 
 	 
 	    
 	    @stock.last_seen = DateTime.now
