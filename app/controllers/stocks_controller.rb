@@ -39,6 +39,7 @@ class StocksController < ApplicationController
 
     end  
 
+
     redirect_to stocks_path
 
   end
