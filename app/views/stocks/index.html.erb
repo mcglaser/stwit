@@ -1,4 +1,7 @@
 <center><h1>Recent Trending Stocks</h1></center>
+
+<%= link_to "PARSE", parse_path %><br><br>
+
 <h3>Total Stocks Seen: <%= @stocks.count %></h3><br><br><br>
 
 <% @stocks.select(&:times_seen_today?).sort_by(&:times_seen_today).reverse.each do |stock| %>
