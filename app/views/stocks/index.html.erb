@@ -5,15 +5,18 @@
 <h3>Total Stocks Seen: <%= @stocks.count %></h3><br><br><br>
 
 <% @stocks.select(&:times_seen_today?).sort_by(&:times_seen_today).reverse.each do |stock| %>
+<% stock_hour = (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 %>
+<% if stock_hour < 24 %>
 <h3>Index: <%= stock.id %></h3>
 <h3>Twit ID: <%= stock.twit_id %></h3>
 <h3>Symbol: <%= stock.symbol %> </h3>
 <h3>Name: <%= stock.name %> </h3>
-<h3>Hours since last seen: <%= (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 %></h3>
+<h3>Hours since last seen: <%= stock_hour %></h3>
 <h3>Time and Date Last Seen: <%= stock.last_seen %></h3>
 <h3>Times Seen Overall: <%= stock.times_seen %></h3>
 <h3>Times Seen Today: <%= stock.times_seen_today %></h3>
 <br><br>
+<% end %>
 <% end %>
 
 <% sleep 30 %> 
