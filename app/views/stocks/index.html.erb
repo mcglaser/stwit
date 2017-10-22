@@ -12,7 +12,12 @@
 <h3>Hours since last seen: <%= (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 %></h3>
 <h3>Time and Date Last Seen: <%= stock.last_seen %></h3>
 <h3>Times Seen Overall: <%= stock.times_seen %></h3>
-<h3>Times Seen Today: <%= stock.times_seen_today %></h3>
+<h3>Times Seen Today: 
+<% if (Time.parse(DateTime.now.to_s) - Time.parse(stock.last_seen.to_s))/3600 > 24 %>
+0
+<% else %>
+<%= stock.times_seen_today %></h3>
+<% end %>
 <br><br>
 <% end %>
 
