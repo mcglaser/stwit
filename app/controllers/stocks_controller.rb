@@ -38,7 +38,7 @@ class StocksController < ApplicationController
 	       @stock.times_seen_today = 1
 	    elsif 
 	      @stock.last_seen >= 24
-	      @stock.times_seen_today = 999
+	      @stock.times_seen_today = 0
 	    else
 	       @stock.times_seen_today += 1 
 	    end 
