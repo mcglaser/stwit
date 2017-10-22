@@ -17,7 +17,7 @@ class StocksController < ApplicationController
 	    if @stock.times_seen == nil 
 	       @stock.times_seen = 1
 	     else
-	      @stock.times_seen = 999999
+	      @stock.times_seen += 1
 	    end
 	    
 	    if @stock.last_seen == nil
