@@ -37,8 +37,8 @@ class StocksController < ApplicationController
 	       @stock.last_seen == nil
 	       @stock.times_seen_today = 1
 	    elsif 
-	      (Time.parse(DateTime.now.to_s) - Time.parse(@stock.last_seen.to_s))/3600 >= 24
-	      @stock.times_seen_today = 1
+	      @stock.last_seen >= 24
+	      @stock.times_seen_today = 999
 	    else
 	       @stock.times_seen_today += 1 
 	    end 
